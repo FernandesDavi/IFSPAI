@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta="viewport" content="width=devide.width,initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="stylesheet"  href="icons/material.css">
+            <link rel="stylesheet"  href="css/materialize.css">
+        <link rel="stylesheet"  href="css/folhaPai.css"> 
+        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+        
+        <title>IFSPai</title>
+    </head>
+    <body>
+<nav>
+      <a href="#" class="brand-logo">Gabriel Melo </a>
+<ul id="slide-out" class="side-nav">
+    <li><a href="menu.html"><i class="material-icons">store</i>&nbsp;Home</a></li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header"><i class="material-icons">class</i>&nbsp; Materias<i class="mdi-navigation-arrow-drop-down"></i></a>
+            <div class="collapsible-body">
+
+             <ul>
+                <li><a href="disciplinasAlg.html">Algoritmos</a></li>
+                <li><a href="disciplinasWeb.html">WEP</a></li>
+                <li><a href="dadosWs.html">Java</a></li>
+                <li><a href="disciplinas.html">Segurança</a></li>
+              </ul>
+
+            </div>
+
+          </li>
+        </ul>
+      </li>
+
+      <li class="no-padding">
+
+            <ul class="collapsible collapsible-accordion">
+
+              <li>
+                <a class="collapsible-header">
+                    <i class="material-icons">trending_up</i>&nbsp; Faltas<i class="mdi-navigation-arrow-drop-down"></i>
+                </a>
+                
+                <div class="collapsible-body">
+
+                  <ul>
+                    <li><a href="frequenciaAlg.html">Algoritmos</a></li>
+                    <li><a href="frequenciaWeb.html">WEP</a></li>
+                    <li><a href="frequenciaJava.html">Java</a></li>
+                    <li><a href="frequenciaSeg.html">Segurança</a></li>
+                  </ul>
+
+                </div>
+
+              </li>
+            </ul>
+       </li>
+
+
+      <li><a href="sugestoes.html"><i class="material-icons">chat</i>&nbsp; Sugestões</a></li>
+      <li><a href="redefineSenha.html"><i class="material-icons">lock</i>&nbsp; Redefinir senha</a></li>
+       
+      
+      <li><a href="index.html" onclick="limparLocalStorage()"><i class="material-icons">settings</i>&nbsp; LogOut</a></li>
+    </ul>
+    
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+          
+  </nav>
+
+          <center>
+            <br>
+           <table border="1" class="striped">
+              <thead>
+                <tr>
+                    <th colspan="2" data-field="materia" style="color : white"><center>Algoritmos</center></th>
+                    <th data-field="abrevia" style="color : white"><center>ALG4</th>
+                    <th colspan="3" data-field="psor" style="color : white"><center>Thiago Homem</center></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                
+                <thead>
+                  <tr>
+                    <td colspan="2" style="color : white"><center>Aulas Dadas</center></td>
+                    <td style="color : white"><center>Carga Hor.</td>
+                    <td style="color : white"><center>Faltas</td>
+                    <td style="color: white"><center>Frequência</td>
+                  </tr>
+                </thead>
+                <tr>
+                  <td colspan="2"><center> <b> 44</b> </center></td>
+                  <td><center>80</td>
+                  <td><center><b>0</b></td>
+                  <td><center>100%</td>
+                </tr>
+                
+            
+              </tbody>
+            </table>
+			<a href="menu.html" > <i class="material-icons small"><center>store</i><br>Menu<br> </a>
+             
+          </center>
+
+          
+    
+            
+   
+        
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        
+        <script src="js/jquery-2.2.1.min.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script src="js/materialize.min.js" ></script>
+        
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $(".button-collapse").sideNav();
+          });
+        </script>
+        
+        
+    </body>
+</html>

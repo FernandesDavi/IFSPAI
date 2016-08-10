@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta="viewport" content="width=devide.width,initial-scale=1">
+		<meta charset="utf-8">
+        <link rel="stylesheet"  href="icons/material.css">
+		<link rel="stylesheet"  href="css/materialize.css">
+    <link rel="stylesheet"  href="css/folhaPai.css">    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+<script type="text/javascript">
+
+     window.onload = function(){
+			validaaparecer();
+		}
+
+</script>
+        <title>IFSPai</title>
+    </head>
+    <body onload="local();">
+        <center>
+           <br><br><br><img src="img/IFSP.png">
+    
+		<form id="formlogin" > 
+			    <div id="pai">    
+					
+						<div class="row">
+							<div class="input-field col s6">
+									<input value="" id="login" type="text" class="validate">
+									
+									<label class="active" for="login"><img src="img/ic_usuario_black_24px.svg"/>Login</label>
+									
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="input-field col s6">
+									<input value="" id="password" type="password" class="validate">
+									
+									<label class="active" for="senha"><img src="img/ic_senha_black_24px.svg"/>Senha</label>
+							</div>
+						</div>
+					
+						  </div>
+							
+						  <div id="btnIndex">
+							<!--<a class="waves-effect waves-light btn" type="submit" onclick="validaLogin();">Logar</a>-->
+							<button class="btn waves-effect waves-light" type="submit" onclick="validaLogin();">
+								Entrar<!--<i class="material-icons right">send</i>-->
+								&nbsp;
+							</button>
+							
+							<!--<a class="waves-effect waves-light btn" href="#">Sair</a>-->
+						  </div>
+						<!-- <button class="btn waves-effect waves-light" type="submit" name="action" >Sair
+							 <i class="material-icons right">send</i>
+						  </button> -->
+
+		</form>
+		
+		<h2 id="errolog">Usuário ou senha incoreto!</h2>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+
+        <script type="text/javascript">
+            app.initialize();
+           
+        </script>
+	<script src="js/jquery-2.2.1.min.js" ></script>
+	<script src="js/materialize.min.js" ></script>
+    </body>
+</html>

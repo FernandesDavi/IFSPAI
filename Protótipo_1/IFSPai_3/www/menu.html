@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta="viewport" content="width=devide.width,initial-scale=1">
+		<meta charset="utf-8">
+        <link rel="stylesheet"  href="icons/material.css">
+		    <link rel="stylesheet"  href="css/materialize.css">
+        <link rel="stylesheet"  href="css/folhaPai.css"> 
+		<link rel="stylesheet"  href="css/calendar.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+       
+        <script type="text/javascript">
+            window.onload = function(){
+                log_sis();
+            }
+        </script>
+
+        <title>IFSPai</title>
+    </head>
+    <body onload="calendari();">
+<nav>
+      <a href="#" class="brand-logo">Gabriel Melo </a>
+<ul id="slide-out" class="side-nav">
+    
+        <li class="no-padding">
+
+            <ul class="collapsible collapsible-accordion">
+
+              <li>
+                <a class="collapsible-header">
+                    <i class="material-icons"><img src="img/ic_materias_black_36px.svg"/></i>
+                    &nbsp; Materias<i class="mdi-navigation-arrow-drop-down"></i>
+                </a>
+                
+                <div class="collapsible-body">
+
+                  <ul>
+                    <li><a href="disciplinasAlg.html">Algoritmos</a></li>
+                    <li><a href="disciplinasWeb.html">WEP</a></li>
+                    <li><a href="DadosWsJava.html">Java</a></li>
+                    <li><a href="disciplinas.html">Segurança</a></li>
+                  </ul>
+
+                </div>
+
+              </li>
+            </ul>
+       </li>
+
+       <li class="no-padding">
+
+            <ul class="collapsible collapsible-accordion">
+
+              <li>
+                <a class="collapsible-header">
+                    <i class="material-icons"><img src="img/ic_faltas_black_36px.svg"/></i>
+                    &nbsp; Faltas<i class="mdi-navigation-arrow-drop-down"></i>
+                    
+                </a>
+                
+                <div class="collapsible-body">
+
+                  <ul>
+                    <li><a href="frequenciaAlg.html">Algoritmos</a></li>
+                    <li><a href="frequenciaWeb.html">WEP</a></li>
+                    <li><a href="DadosWsJava.html">Java</a></li>
+                    <li><a href="frequenciaSeg.html">Segurança</a></li>
+                  </ul>
+
+                </div>
+
+              </li>
+            </ul>
+       </li>
+
+
+      <li>
+        <a href="sugestoes.html">
+            <i class="material-icons"><img src="img/ic_sugestoes_black_36px.svg"/></i>
+                    &nbsp; Sugestões
+        </a>
+      </li>
+      
+
+
+      <li>
+        <a href="redefineSenha.html" ><i class="material-icons"><img src="img/ic_redefineSenha_black_36px.svg"/></i> &nbsp; Redefinir Senha</a>
+      </li>
+       
+        <li>
+        <a href="localizacao.html">
+            <i class="material-icons"><img src="img/ic_explore_black_24px.svg"/></i>
+                    &nbsp; Localização
+        </a>
+      </li>
+
+      <li>
+        <a href="index.html" onclick="limparLocalStorage()"><img src="img/ic_loggout_black_36px.svg"/></i> &nbsp; LogOut
+      </li>
+    
+    </ul>
+    
+    
+
+
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+          
+  </nav>
+
+          
+          <ul class="collapsible popout" data-collapsible="accordion">
+          <li>
+
+            <div class="collapsible-header" id="mae">
+                <i class="material-icons"> <img src="img/ic_disciplinas_black_36px.svg"></i>Disciplinas
+
+            </div>
+            <div class="collapsible-body">
+              <ul class="collection">
+                <li class="collection-item"><a href="disciplinasAlg.html"><center>Algoritmos</a></li>
+                <li class="collection-item"><a href="disciplinasWeb.html"><center>WEP</a></li>
+                <li class="collection-item"><a href="dadosWs.html"><center>Java</a></li>
+                <li class="collection-item"><a href="disciplinas.html"><center>Segurança </a></li>
+              </ul>
+            </div>
+            
+          </li>
+
+          <li>
+            <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_frequencia_black_36px.svg"></i>Frequência/Faltas</div>
+            <div class="collapsible-body">
+                <ul class="collection">
+                    <li class="collection-item"><a href="frequenciaAlg.html"><center>Algoritmos</a></li>
+                    <li class="collection-item"><a href="frequenciaWeb.html"><center>WEP</a></li>
+                    <li class="collection-item"><a href="DadosWsJava.html"><center>Java</a></li>
+                    <li class="collection-item"><a href="frequenciaSeg.html"><center>Segurança </a></li>
+                </ul>
+            </div>
+            
+          </li>
+
+          <li>
+            <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_feedback_black_36px.svg"></i>Observações</div>
+            <div class="collapsible-body">Espaço para notas do aluno</div>
+            <!-- Retirando este p o header volta ao normal -->
+          </li>
+
+<li>
+            <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_explore_black_24px.svg"></i><a href="localizaFilhos.html" ><font color="#ffffff">Localização</font></a></div>
+            
+            <!-- Retirando este p o header volta ao normal -->
+        </li>
+
+          <li>
+            <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_calendario_black_36px.svg"></i>Calendário</div>
+            <div class="collapsible-body">
+				
+				<div class="wrapper">
+				    <div id="calendari"></div>
+  
+                </div>
+
+ 
+            
+            </div>
+            <p/>
+          </li>
+            
+
+
+        </ul>
+
+        
+                <script type="text/javascript">
+            var mesos = [
+                'Janeiro',
+                'Feveveiro',
+                'Março',
+                'Abril',
+                'Maio',
+                'Junho',
+                'Julho',
+                'Agosto',
+                'Setembro',
+                'Outubro',
+                'Novembro',
+                'Dezembro'
+            ];
+
+var dies = [
+    'Dog',
+    'Seg',
+    'Ter',
+    'Qua',
+    'Qui',
+    'Sex',
+    'Sab'
+];
+
+var dies_abr = [
+    'Dog',
+    'Seg',
+    'Ter',
+    'Qua',
+    'Qui',
+    'Sex',
+    'Sab'
+];
+
+Number.prototype.pad = function(num) {
+    var str = '';
+    for(var i = 0; i < (num-this.toString().length); i++)
+        str += '0';
+    return str += this.toString();
+}
+
+function calendari(widget, data)
+{
+
+    var original = widget.getElementsByClassName('actiu')[0];
+
+    if(typeof original === 'undefined')
+    {
+        original = document.createElement('table');
+        original.setAttribute('data-actual',
+                  data.getFullYear() + '/' +
+                  data.getMonth().pad(2) + '/' +
+                  data.getDate().pad(2))
+        widget.appendChild(original);
+    }
+
+    var diff = data - new Date(original.getAttribute('data-actual'));
+
+    diff = new Date(diff).getMonth();
+
+    var e = document.createElement('table');
+
+    e.className = diff  === 0 ? 'amagat-esquerra' : 'amagat-dreta';
+    e.innerHTML = '';
+
+    widget.appendChild(e);
+
+    e.setAttribute('data-actual',
+                   data.getFullYear() + '/' +
+                   data.getMonth().pad(2) + '/' +
+                   data.getDate().pad(2))
+
+    var fila = document.createElement('tr');
+    var titol = document.createElement('th');
+    titol.setAttribute('colspan', 7);
+
+    var boto_prev = document.createElement('button');
+    boto_prev.className = 'boto-prev';
+    boto_prev.innerHTML = '&#9666;';
+
+    var boto_next = document.createElement('button');
+    boto_next.className = 'boto-next';
+    boto_next.innerHTML = '&#9656;';
+
+    titol.appendChild(boto_prev);
+    titol.appendChild(document.createElement('span')).innerHTML = 
+        mesos[data.getMonth()] + '<span class="any">' + data.getFullYear() + '</span>';
+
+    titol.appendChild(boto_next);
+
+    boto_prev.onclick = function() {
+        data.setMonth(data.getMonth() - 1);
+        calendari(widget, data);
+    };
+
+    boto_next.onclick = function() {
+        data.setMonth(data.getMonth() + 1);
+        calendari(widget, data);
+    };
+
+    fila.appendChild(titol);
+    e.appendChild(fila);
+
+    fila = document.createElement('tr');
+
+    for(var i = 1; i < 7; i++)
+    {
+        fila.innerHTML += '<th>' + dies_abr[i] + '</th>';
+    }
+
+    fila.innerHTML += '<th>' + dies_abr[0] + '</th>';
+    e.appendChild(fila);
+
+    /* Obtinc el dia que va acabar el mes anterior */
+    var inici_mes =
+        new Date(data.getFullYear(), data.getMonth(), -1).getDay();
+
+    var actual = new Date(data.getFullYear(),
+              data.getMonth(),
+              -inici_mes);
+
+    /* 6 setmanes per cobrir totes les posiblitats
+     *  Quedaria mes consistent alhora de mostrar molts mesos 
+     *  en una quadricula */
+    for(var s = 0; s < 6; s++)
+    {
+        var fila = document.createElement('tr');
+
+        for(var d = 1; d < 8; d++)
+        {
+        var cela = document.createElement('td');
+        var span = document.createElement('span');
+
+        cela.appendChild(span);
+
+            span.innerHTML = actual.getDate();
+
+            if(actual.getMonth() !== data.getMonth())
+                cela.className = 'fora';
+
+            /* Si es avui el decorem */
+            if(data.getDate() == actual.getDate() &&
+           data.getMonth() == actual.getMonth())
+        cela.className = 'avui';
+
+        actual.setDate(actual.getDate()+1);
+            fila.appendChild(cela);
+        }
+
+        e.appendChild(fila);
+    }
+
+    setTimeout(function() {
+        e.className = 'actiu';
+        original.className +=
+        diff === 0 ? ' amagat-dreta' : ' amagat-esquerra';
+    }, 20);
+
+    original.className = 'inactiu';
+
+    setTimeout(function() {
+        var inactius = document.getElementsByClassName('inactiu');
+        for(var i = 0; i < inactius.length; i++)
+            widget.removeChild(inactius[i]);
+    }, 1000);
+
+}
+
+calendari(document.getElementById('calendari'), new Date());
+        </script>
+        
+		<script type="text/javascript" src="js/calendario.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+	<script src="js/jquery-2.2.1.min.js"></script>
+	<script src="js/materialize.min.js" ></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+     $(".button-collapse").sideNav();
+		 
+         
+
+});
+        </script>
+             <script type="text/javascript" src="js/login.js"></script>
+
+    </body>
+</html>
