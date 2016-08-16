@@ -88,6 +88,7 @@ function validaLogin(){
 			var login=$('#login').val();    //Pega valor do campo login
 			var senha=$('#password').val(); //Pega valor do campo senha
 			var aluno;
+			var pai;
 
 			localStorage.setItem("usuario",login);
 			localStorage.setItem("senha",senha);
@@ -106,6 +107,8 @@ function validaLogin(){
 								location.href='menu.html';   //Redireciona
 								aluno = retorno[0].id_aluno;
 								nome_aluno = retorno[0].nome;
+								pai = retorno[0].id_resp;
+								localStorage.setItem("pai",pai);
 								localStorage.setItem("aluno",aluno);
 								localStorage.setItem("nome_aluno",nome_aluno);
 
