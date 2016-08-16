@@ -1,110 +1,109 @@
 <!DOCTYPE html>
- 
-<html>
-    <head>
-        <meta="viewport" content="width=devide.width,initial-scale=1">
-		<meta charset="utf-8">
-       <link rel="stylesheet"  href="icons/material.css">
-		   <link rel="stylesheet"  href="css/materialize.css">
-    	 <link rel="stylesheet"  href="css/folhaPai.css"> 
-       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
-        
-        <title>IFSPai</title>
-    </head>
 
-    <body>
-<nav>
-      <a href="#!" class="brand-logo">Gabriel Melo</a>
-<ul id="slide-out" class="side-nav">
+<html>
+<head>
+  <meta="viewport" content="width=devide.width,initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet"  href="icons/material.css">
+  <link rel="stylesheet"  href="css/materialize.css">
+  <link rel="stylesheet"  href="css/folhaPai.css"> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+  <script type="text/javascript">
+    window.onload = function(){
+      nome();
+      Carregarmaterias();
+      CarregarNotas();
+      
+    }
+  </script>
+  <title>IFSPai</title>
+</head>
+
+<body>
+  <nav>
+    <a href="#!" class="brand-logo" id="nomeHead"></a>
+    <ul id="slide-out" class="side-nav">
       <li><a href="menu.html"><i class="material-icons"><img src="img/ic_menu_black_36px.svg"/></i>&nbsp;Home</a></li>
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
             <a class="collapsible-header"><i class="material-icons"><img src="img/ic_materias_black_36px.svg"/></i>&nbsp;Materias<i class="mdi-navigation-arrow-drop-down"></i></a>
-            <div class="collapsible-body">
-              <ul>
-                <li><a href="disciplinasAlg.html">Algoritmos</a></li>
-                <li><a href="disciplinasWeb.html">WEP</a></li>
-                <li><a href="dadosWs.html">Java</a></li>
-                <li><a href="disciplinas.html">Segurança</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
+            <div class="collapsible-body" id="materia">
+                <!--
+                  aqui :p
+                -->
+              </div>
+            </li>
+          </ul>
+        </li>
 
-      <li class="no-padding">
+        <li class="no-padding">
 
-            <ul class="collapsible collapsible-accordion">
+          <ul class="collapsible collapsible-accordion">
 
-              <li>
-                <a class="collapsible-header">
-                    <i class="material-icons"><img src="img/ic_faltas_black_36px.svg"/></i>&nbsp; Faltas<i class="mdi-navigation-arrow-drop-down"></i>
-                </a>
-                
-                <div class="collapsible-body">
+            <li>
+              <a class="collapsible-header">
+                <i class="material-icons"><img src="img/ic_faltas_black_36px.svg"/></i>&nbsp; Faltas<i class="mdi-navigation-arrow-drop-down"></i>
+              </a>
 
-                  <ul>
-                    <li><a href="frequenciaAlg.html">Algoritmos</a></li>
-                    <li><a href="frequenciaWeb.html">WEP</a></li>
-                    <li><a href="frequenciaJava.html">Java</a></li>
-                    <li><a href="frequenciaSeg.html">Segurança</a></li>
-                  </ul>
+              <div class="collapsible-body" id="frequencia">
+               <!-- aquiii-->
+             </div>
 
-                </div>
-
-              </li>
-            </ul>
+           </li>
+         </ul>
        </li>
 
 
-      <li><a href="redefineSenha.html"><i class="material-icons"><img src="img/ic_redefineSenha_black_36px.svg"/></i>&nbsp;Redefinir senha</a></li>
-       
-      
-      <li><a href="index.html" onclick="limparLocalStorage()"><i class="material-icons"><img src="img/ic_sugestoes_black_36px.svg"/></i>&nbsp; LogOut</a></li>
-    </ul>
-    
-    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-          
-  </nav>
+       <li><a href="redefineSenha.html"><i class="material-icons"><img src="img/ic_redefineSenha_black_36px.svg"/></i>&nbsp;Redefinir senha</a></li>
 
 
-         
-		
-		
+       <li><a href="index.html" onclick="limparLocalStorage()"><i class="material-icons"><img src="img/ic_sugestoes_black_36px.svg"/></i>&nbsp; LogOut</a></li>
+     </ul>
 
-		<center> <br/> Informe sua dúvida ou sugestão:<br/>
-            		<div class="row">
-    					<form class="col s12">
-      						<div class="row">
-        						<div class="input-field col s12">
-          							<textarea id="textarea1" class="materialize-textarea" ></textarea>
-          							<label for="textarea1" >Área de texto</label>
-          							<br/>
-          							<button class="btn waves-effect waves-light" type="submit" name="action" onclick="enviaSujestoes()">Enviar
-    								<!--<i class="material-icons right">send</i>-->
-  									</button>
+     <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 
-        						</div>
-      						</div>
-    					</form>
-  					</div>
+   </nav>
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-	<script src="js/jquery-2.2.1.min.js"></script>
-	<script src="js/materialize.min.js" ></script>
-    <script src="js/sujestoes.js" ></script>
 
-   	<script type="text/javascript">
-        $(document).ready(function(){
-         $(".button-collapse").sideNav();
-         
 
-});
-        </script>
-    </body>
+
+
+
+   <center> <br/> Informe sua dúvida ou sugestão:<br/>
+    <div class="row">
+     <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+         <textarea id="textarea1" class="materialize-textarea" ></textarea>
+         <label for="textarea1" >Área de texto</label>
+         <br/>
+         <button class="btn waves-effect waves-light" type="submit" name="action" onclick="enviaSujestoes()">Enviar
+          <!--<i class="material-icons right">send</i>-->
+        </button>
+
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+  app.initialize();
+</script>
+<script src="js/jquery-2.2.1.min.js"></script>
+<script src="js/materialize.min.js" ></script>
+<script src="js/sujestoes.js" ></script>
+<script src="js/nome.js" ></script>
+<script type="text/javascript" src="js/materias.js"></script>
+<script type="text/javascript" src="js/notaslista.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+   $(".button-collapse").sideNav();
+
+
+ });
+</script>
+</body>
 </html>

@@ -18,10 +18,38 @@ function alterarSenha(){
 
     	success: function(retorno) {
 
-			alert("Senha alteada com sucesso você sera deslogado para concluir o processo!");
+			
 			}
 		});	
-
+alert("Senha alteada com sucesso você sera deslogado para concluir o processo!");
+	 limparLocalStorage();
 	}else
 	alert("Digite a senha atual corretamente");
+}
+
+function log_out(){
+
+
+var url = "	http://davifernandes.profissional.ws/escola/log.php";
+var ios = 1;
+var users =localStorage.getItem("aluno");
+    //Capturar Dados Usando Método AJAX do jQuery
+    $.ajax({
+	    url: url,
+	    cache: false,
+		crossDomain: true,
+		type:"post", 
+	    dataType: "json",
+	    data:"io="+ios+"&user="+users,
+	   
+    });
+	
+
+}
+
+function limparLocalStorage(){
+		window.location.replace("index.html");
+
+	localStorage.clear();
+	log_out();
 }
