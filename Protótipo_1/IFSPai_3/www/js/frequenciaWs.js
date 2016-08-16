@@ -15,26 +15,26 @@ function carregarItensFrequencia(){
 	var x = "";
     //Capturar Dados Usando Método AJAX do jQuery
     $.ajax({
-	    url: url,
-	    cache: false,
-		crossDomain: true,
-	    dataType: "json",
-	   	data:"aluno="+idaluno+"&materia="+mat, 
+    	url: url,
+    	cache: false,
+    	crossDomain: true,
+    	dataType: "json",
+    	data:"aluno="+idaluno+"&materia="+mat, 
 
-	    beforeSend: function() {
+    	beforeSend: function() {
 		    $("h2").html("Carregando..."); //Carregando
-	    },
-	    error: function(data) {
+		},
+		error: function(data) {
 			this.data = data;
 			console.log(data);
-		    $("h2").html("Há algum problema com a fonte de dados");
-	    },
-	    success: function(retorno) {
-		    if(retorno[0].erro){
-			    $("h2").html(retorno[0].erro);
-		    }
-		    else{
-					
+			$("h2").html("Há algum problema com a fonte de dados");
+		},
+		success: function(retorno) {
+			if(retorno[0].erro){
+				$("h2").html(retorno[0].erro);
+			}
+			else{
+				
 					//Dados do cabeçalho da tabela
 					disciplina = retorno[0].disciplina_nome;
 					turma = retorno[0].turma;
@@ -49,16 +49,16 @@ function carregarItensFrequencia(){
 					frequencia += '%';
 
 			    //Preencher o cabeçalho da tabela
-				 $("#disciplina").html(disciplina);
-				 $("#turma").html(turma);
-				 $("#professor").html(professor);
-			     $("#auladada").html(auladada);
-			     $("#cargarH").html(cargaH);
-			     $("#faltas").html(faltas);
-			     $("#frquencia").html(frequencia);
-		    }
-	    }
-    });
+			    $("#disciplina").html(disciplina);
+			    $("#turma").html(turma);
+			    $("#professor").html(professor);
+			    $("#auladada").html(auladada);
+			    $("#cargarH").html(cargaH);
+			    $("#faltas").html(faltas);
+			    $("#frquencia").html(frequencia);
+			}
+		}
+	});
 }
-	
-	
+
+

@@ -1,7 +1,8 @@
 function enviaSujestoes(){
-var url = "	http://davifernandes.profissional.ws/escola/log.php";
-var io = 0;
-var users =localStorage.getItem("aluno");
+var url = "	http://davifernandes.profissional.ws/escola/suje.php";
+var sugestoes = $('#textarea1').val();
+
+var id_resp_sug =localStorage.getItem("pai");
     //Capturar Dados Usando Método AJAX do jQuery
     $.ajax({
 	    url: url,
@@ -9,9 +10,9 @@ var users =localStorage.getItem("aluno");
 		crossDomain: true,
 		type:"post", 
 	    dataType: "json",
-	    data:"io="+io+"&user="+users,
+	    data:"sugestoes="+sugestoes+"&id_resp_sug="+id_resp_sug,
 	   
     });
 	
-
-}
+alert("Mensagem enviada com sucesso!");
+};
