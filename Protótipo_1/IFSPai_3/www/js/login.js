@@ -11,9 +11,11 @@
 
 */  
 function log_out(){
-var itens = "", url = "	http://davifernandes.profissional.ws/Alunos/log.php";
+
+
+var url = "	http://davifernandes.profissional.ws/escola/log.php";
 var ios = 1;
-var users = 1;
+var users =localStorage.getItem("aluno");
     //Capturar Dados Usando Método AJAX do jQuery
     $.ajax({
 	    url: url,
@@ -30,9 +32,9 @@ var users = 1;
 
 
 function log_sis(){
-var itens = "", url = "	http://davifernandes.profissional.ws/Alunos/log.php";
+var url = "	http://davifernandes.profissional.ws/escola/log.php";
 var io = 0;
-var user = 1;
+var users =localStorage.getItem("aluno");
     //Capturar Dados Usando Método AJAX do jQuery
     $.ajax({
 	    url: url,
@@ -40,13 +42,12 @@ var user = 1;
 		crossDomain: true,
 		type:"post", 
 	    dataType: "json",
-	    data:"io="+io+"&user="+user,
+	    data:"io="+io+"&user="+users,
 	   
     });
 	
 
 }
-
 function validaaparecer(){
 	
      		 
@@ -55,14 +56,14 @@ function validaaparecer(){
 	var inputPassword = localStorage.getItem("senha");
 	$.ajax({            //Função AJAX
 
-	url:"http://davifernandes.profissional.ws/Alunos/login2.php",//Arquivo php
+	url:"http://davifernandes.profissional.ws/escola/login.php",//Arquivo php
 	type:"post",    //Método de envio
 	dataType: "json",
 	data:"login="+inputUsername+"&senha="+inputPassword,    //Dados
 
 							
 		success: function (retorno){            //Sucesso no AJAX					
-			if(retorno[0].id_login_aluno != 0){                       
+			if(retorno[0].id_aluno != 0){                       
 					location.href='menu.html'   //Redireciona
 				}else{
 					$('#errolog').hide();
@@ -91,7 +92,7 @@ function validaLogin(){
 			localStorage.setItem("usuario",login);
 			localStorage.setItem("senha",senha);
 				$.ajax({            //Função AJAX
-					url:"http://davifernandes.profissional.ws/Alunos/login2.php",//Arquivo php
+					url:"http://davifernandes.profissional.ws/escola/login.php",//Arquivo php
 					type:"post",    //Método de envio
 					dataType: "json",
 					data:"login="+login+"&senha="+senha,    //Dados
@@ -101,10 +102,12 @@ function validaLogin(){
 							$('#errolog').show(); 
 							},
 						success: function (retorno){            //Sucesso no AJAX
-							if(retorno[0].id_login_aluno != 0){                        
+							if(retorno[0].id_aluno != 0){                        
 								location.href='menu.html';   //Redireciona
-								aluno = retorno[0].id_login_aluno;
+								aluno = retorno[0].id_aluno;
+								nome_aluno = retorno[0].nome;
 								localStorage.setItem("aluno",aluno);
+								localStorage.setItem("nome_aluno",nome_aluno);
 
 							}
 						}
@@ -114,3 +117,10 @@ function validaLogin(){
 		})
 };
 
+function nome(){
+	var nome;
+ 	 nome = localStorage.getItem("nome_aluno");
+ 	$("#nomeHead").html(nome);
+
+
+};

@@ -10,11 +10,17 @@
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
         
-        <title>IFSPai</title>
+        <title>IFSPai</title> 
+         <script type="text/javascript">
+            window.onload = function(){
+                nome();
+                carregarItensFrequencia();
+            }
+        </script>
     </head>
-    <body onload="carregarItens();">
+    <body>
 <nav>
-      <a href="#" class="brand-logo">Gabriel Melo </a>
+      <a href="#" class="brand-logo" id="nomeHead"></a>
 <ul id="slide-out" class="side-nav">
     <li><a href="menu.html"><i class="material-icons">store</i>&nbsp;Home</a></li>
     <li class="no-padding">
@@ -23,7 +29,7 @@
             <a class="collapsible-header"><i class="material-icons">class</i>&nbsp; Materias<i class="mdi-navigation-arrow-drop-down"></i></a>
             <div class="collapsible-body">
 
-          <ul>
+             <ul>
                 <li><a href="disciplinasAlg.html">Algoritmos</a></li>
                 <li><a href="disciplinasWeb.html">WEP</a></li>
                 <li><a href="dadosWs.html">Java</a></li>
@@ -77,9 +83,9 @@
            <table border="1" class="striped">
               <thead>
                 <tr>
-                    <th colspan="2" data-field="materia" style="color : white"><center>Java</center></th>
-                    <th data-field="abrevia" style="color : white"><center>JVA4</th>
-                    <th colspan="3" data-field="psor" style="color : white"><center>Cícero</center></th>
+                    <th colspan="2" data-field="materia" style="color : white" ><center id="disciplina"></center></th>
+                    <th data-field="abrevia" style="color : white"><center id="turma"></th></center>
+                    <th colspan="3" data-field="psor" style="color : white"><center id="professor"></center></th>
                 </tr>
               </thead>
 
@@ -94,21 +100,22 @@
                   </tr>
                 </thead>
                 <tr>
-                  <td colspan="2"><center> <b> 44</b> </center></td>
-                  <td><center>80</td>
-                  <td><center><b>0</b></td>
-                  <td><center>100%</td>
+                  <td colspan="2"><center> <b id="auladada"> </b> </center></td>
+                  <td><center id="cargarH"></center></td>
+                  <td><center><b id="faltas"></b></center></td>
+                  <td><center id="frquencia">%</center> </td>
                 </tr>
                 
             
               </tbody>
             </table>
-				<a href="menu.html" > <i class="material-icons small"><center>store</i><br>Menu<br> </a>
+			<a href="menu.html" > <i class="material-icons small"><center>store</i><br>Menu<br> </a>
+             
           </center>
 
           
-
-             
+    
+            
    
         
         
@@ -123,7 +130,10 @@
         <script src="js/jquery-2.2.1.min.js"></script>
         <script type="text/javascript" src="js/login.js"></script>
         <script src="js/materialize.min.js" ></script>
-        
+        <script src="js/frequenciaWs.js" ></script>
+        <script src="js/nome.js" ></script>
+
+
         <script type="text/javascript">
           $(document).ready(function(){
             $(".button-collapse").sideNav();

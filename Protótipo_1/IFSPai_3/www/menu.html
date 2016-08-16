@@ -4,15 +4,18 @@
     <head>
         <meta="viewport" content="width=devide.width,initial-scale=1">
 		<meta charset="utf-8">
-        <link rel="stylesheet"  href="icons/material.css">
 		    <link rel="stylesheet"  href="css/materialize.css">
         <link rel="stylesheet"  href="css/folhaPai.css"> 
 		<link rel="stylesheet"  href="css/calendar.css">
+
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
        
         <script type="text/javascript">
             window.onload = function(){
                 log_sis();
+                nome();
+                Carregarmaterias();
+                CarregarNotas();
             }
         </script>
 
@@ -20,7 +23,7 @@
     </head>
     <body onload="calendari();">
 <nav>
-      <a href="#" class="brand-logo">Gabriel Melo </a>
+      <a href="#" class="brand-logo" id="nomeHead"> </a>
 <ul id="slide-out" class="side-nav">
     
         <li class="no-padding">
@@ -33,15 +36,15 @@
                     &nbsp; Materias<i class="mdi-navigation-arrow-drop-down"></i>
                 </a>
                 
-                <div class="collapsible-body">
-
+                <div class="collapsible-body" id="materia">
+<!--
                   <ul>
                     <li><a href="disciplinasAlg.html">Algoritmos</a></li>
                     <li><a href="disciplinasWeb.html">WEP</a></li>
                     <li><a href="DadosWsJava.html">Java</a></li>
                     <li><a href="disciplinas.html">Segurança</a></li>
                   </ul>
-
+-->
                 </div>
 
               </li>
@@ -59,15 +62,8 @@
                     
                 </a>
                 
-                <div class="collapsible-body">
-
-                  <ul>
-                    <li><a href="frequenciaAlg.html">Algoritmos</a></li>
-                    <li><a href="frequenciaWeb.html">WEP</a></li>
-                    <li><a href="DadosWsJava.html">Java</a></li>
-                    <li><a href="frequenciaSeg.html">Segurança</a></li>
-                  </ul>
-
+                <div class="collapsible-body" id="frequencia">
+               <!-- aquiii-->
                 </div>
 
               </li>
@@ -113,29 +109,19 @@
           <li>
 
             <div class="collapsible-header" id="mae">
-                <i class="material-icons"> <img src="img/ic_disciplinas_black_36px.svg"></i>Disciplinas
+                <i class="material-icons" > <img src="img/ic_disciplinas_black_36px.svg"></i>Disciplinas
 
             </div>
-            <div class="collapsible-body">
-              <ul class="collection">
-                <li class="collection-item"><a href="disciplinasAlg.html"><center>Algoritmos</a></li>
-                <li class="collection-item"><a href="disciplinasWeb.html"><center>WEP</a></li>
-                <li class="collection-item"><a href="dadosWs.html"><center>Java</a></li>
-                <li class="collection-item"><a href="disciplinas.html"><center>Segurança </a></li>
-              </ul>
+            <div class="collapsible-body"id="materiaCola">
+             <!-- aquiii-->
             </div>
             
           </li>
 
           <li>
             <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_frequencia_black_36px.svg"></i>Frequência/Faltas</div>
-            <div class="collapsible-body">
-                <ul class="collection">
-                    <li class="collection-item"><a href="frequenciaAlg.html"><center>Algoritmos</a></li>
-                    <li class="collection-item"><a href="frequenciaWeb.html"><center>WEP</a></li>
-                    <li class="collection-item"><a href="DadosWsJava.html"><center>Java</a></li>
-                    <li class="collection-item"><a href="frequenciaSeg.html"><center>Segurança </a></li>
-                </ul>
+            <div class="collapsible-body" id="frequenciaN">
+                <!-- aquiii-->
             </div>
             
           </li>
@@ -172,7 +158,7 @@
         </ul>
 
         
-                <script type="text/javascript">
+   <script type="text/javascript">
             var mesos = [
                 'Janeiro',
                 'Feveveiro',
@@ -188,166 +174,169 @@
                 'Dezembro'
             ];
 
-var dies = [
-    'Dog',
-    'Seg',
-    'Ter',
-    'Qua',
-    'Qui',
-    'Sex',
-    'Sab'
-];
+        var dies = [
+            'Dog',
+            'Seg',
+            'Ter',
+            'Qua',
+            'Qui',
+            'Sex',
+            'Sab'
+        ];
 
-var dies_abr = [
-    'Dog',
-    'Seg',
-    'Ter',
-    'Qua',
-    'Qui',
-    'Sex',
-    'Sab'
-];
+        var dies_abr = [
+            'Dog',
+            'Seg',
+            'Ter',
+            'Qua',
+            'Qui',
+            'Sex',
+            'Sab'
+        ];
 
-Number.prototype.pad = function(num) {
-    var str = '';
-    for(var i = 0; i < (num-this.toString().length); i++)
-        str += '0';
-    return str += this.toString();
-}
-
-function calendari(widget, data)
-{
-
-    var original = widget.getElementsByClassName('actiu')[0];
-
-    if(typeof original === 'undefined')
-    {
-        original = document.createElement('table');
-        original.setAttribute('data-actual',
-                  data.getFullYear() + '/' +
-                  data.getMonth().pad(2) + '/' +
-                  data.getDate().pad(2))
-        widget.appendChild(original);
-    }
-
-    var diff = data - new Date(original.getAttribute('data-actual'));
-
-    diff = new Date(diff).getMonth();
-
-    var e = document.createElement('table');
-
-    e.className = diff  === 0 ? 'amagat-esquerra' : 'amagat-dreta';
-    e.innerHTML = '';
-
-    widget.appendChild(e);
-
-    e.setAttribute('data-actual',
-                   data.getFullYear() + '/' +
-                   data.getMonth().pad(2) + '/' +
-                   data.getDate().pad(2))
-
-    var fila = document.createElement('tr');
-    var titol = document.createElement('th');
-    titol.setAttribute('colspan', 7);
-
-    var boto_prev = document.createElement('button');
-    boto_prev.className = 'boto-prev';
-    boto_prev.innerHTML = '&#9666;';
-
-    var boto_next = document.createElement('button');
-    boto_next.className = 'boto-next';
-    boto_next.innerHTML = '&#9656;';
-
-    titol.appendChild(boto_prev);
-    titol.appendChild(document.createElement('span')).innerHTML = 
-        mesos[data.getMonth()] + '<span class="any">' + data.getFullYear() + '</span>';
-
-    titol.appendChild(boto_next);
-
-    boto_prev.onclick = function() {
-        data.setMonth(data.getMonth() - 1);
-        calendari(widget, data);
-    };
-
-    boto_next.onclick = function() {
-        data.setMonth(data.getMonth() + 1);
-        calendari(widget, data);
-    };
-
-    fila.appendChild(titol);
-    e.appendChild(fila);
-
-    fila = document.createElement('tr');
-
-    for(var i = 1; i < 7; i++)
-    {
-        fila.innerHTML += '<th>' + dies_abr[i] + '</th>';
-    }
-
-    fila.innerHTML += '<th>' + dies_abr[0] + '</th>';
-    e.appendChild(fila);
-
-    /* Obtinc el dia que va acabar el mes anterior */
-    var inici_mes =
-        new Date(data.getFullYear(), data.getMonth(), -1).getDay();
-
-    var actual = new Date(data.getFullYear(),
-              data.getMonth(),
-              -inici_mes);
-
-    /* 6 setmanes per cobrir totes les posiblitats
-     *  Quedaria mes consistent alhora de mostrar molts mesos 
-     *  en una quadricula */
-    for(var s = 0; s < 6; s++)
-    {
-        var fila = document.createElement('tr');
-
-        for(var d = 1; d < 8; d++)
-        {
-        var cela = document.createElement('td');
-        var span = document.createElement('span');
-
-        cela.appendChild(span);
-
-            span.innerHTML = actual.getDate();
-
-            if(actual.getMonth() !== data.getMonth())
-                cela.className = 'fora';
-
-            /* Si es avui el decorem */
-            if(data.getDate() == actual.getDate() &&
-           data.getMonth() == actual.getMonth())
-        cela.className = 'avui';
-
-        actual.setDate(actual.getDate()+1);
-            fila.appendChild(cela);
+        Number.prototype.pad = function(num) {
+            var str = '';
+            for(var i = 0; i < (num-this.toString().length); i++)
+                str += '0';
+            return str += this.toString();
         }
 
-        e.appendChild(fila);
-    }
+        function calendari(widget, data)
+        {
 
-    setTimeout(function() {
-        e.className = 'actiu';
-        original.className +=
-        diff === 0 ? ' amagat-dreta' : ' amagat-esquerra';
-    }, 20);
+            var original = widget.getElementsByClassName('actiu')[0];
 
-    original.className = 'inactiu';
+            if(typeof original === 'undefined')
+            {
+                original = document.createElement('table');
+                original.setAttribute('data-actual',
+                          data.getFullYear() + '/' +
+                          data.getMonth().pad(2) + '/' +
+                          data.getDate().pad(2))
+                widget.appendChild(original);
+            }
 
-    setTimeout(function() {
-        var inactius = document.getElementsByClassName('inactiu');
-        for(var i = 0; i < inactius.length; i++)
-            widget.removeChild(inactius[i]);
-    }, 1000);
+            var diff = data - new Date(original.getAttribute('data-actual'));
 
-}
+            diff = new Date(diff).getMonth();
 
-calendari(document.getElementById('calendari'), new Date());
+            var e = document.createElement('table');
+
+            e.className = diff  === 0 ? 'amagat-esquerra' : 'amagat-dreta';
+            e.innerHTML = '';
+
+            widget.appendChild(e);
+
+            e.setAttribute('data-actual',
+                           data.getFullYear() + '/' +
+                           data.getMonth().pad(2) + '/' +
+                           data.getDate().pad(2))
+
+            var fila = document.createElement('tr');
+            var titol = document.createElement('th');
+            titol.setAttribute('colspan', 7);
+
+            var boto_prev = document.createElement('button');
+            boto_prev.className = 'boto-prev';
+            boto_prev.innerHTML = '&#9666;';
+
+            var boto_next = document.createElement('button');
+            boto_next.className = 'boto-next';
+            boto_next.innerHTML = '&#9656;';
+
+            titol.appendChild(boto_prev);
+            titol.appendChild(document.createElement('span')).innerHTML = 
+                mesos[data.getMonth()] + '<span class="any">' + data.getFullYear() + '</span>';
+
+            titol.appendChild(boto_next);
+
+            boto_prev.onclick = function() {
+                data.setMonth(data.getMonth() - 1);
+                calendari(widget, data);
+            };
+
+            boto_next.onclick = function() {
+                data.setMonth(data.getMonth() + 1);
+                calendari(widget, data);
+            };
+
+            fila.appendChild(titol);
+            e.appendChild(fila);
+
+            fila = document.createElement('tr');
+
+            for(var i = 1; i < 7; i++)
+            {
+                fila.innerHTML += '<th>' + dies_abr[i] + '</th>';
+            }
+
+            fila.innerHTML += '<th>' + dies_abr[0] + '</th>';
+            e.appendChild(fila);
+
+            /* Obtinc el dia que va acabar el mes anterior */
+            var inici_mes =
+                new Date(data.getFullYear(), data.getMonth(), -1).getDay();
+
+            var actual = new Date(data.getFullYear(),
+                      data.getMonth(),
+                      -inici_mes);
+
+            /* 6 setmanes per cobrir totes les posiblitats
+             *  Quedaria mes consistent alhora de mostrar molts mesos 
+             *  en una quadricula */
+            for(var s = 0; s < 6; s++)
+            {
+                var fila = document.createElement('tr');
+
+                for(var d = 1; d < 8; d++)
+                {
+                var cela = document.createElement('td');
+                var span = document.createElement('span');
+
+                cela.appendChild(span);
+
+                    span.innerHTML = actual.getDate();
+
+                    if(actual.getMonth() !== data.getMonth())
+                        cela.className = 'fora';
+
+                    /* Si es avui el decorem */
+                    if(data.getDate() == actual.getDate() &&
+                   data.getMonth() == actual.getMonth())
+                cela.className = 'avui';
+
+                actual.setDate(actual.getDate()+1);
+                    fila.appendChild(cela);
+                }
+
+                e.appendChild(fila);
+            }
+
+            setTimeout(function() {
+                e.className = 'actiu';
+                original.className +=
+                diff === 0 ? ' amagat-dreta' : ' amagat-esquerra';
+            }, 20);
+
+            original.className = 'inactiu';
+
+            setTimeout(function() {
+                var inactius = document.getElementsByClassName('inactiu');
+                for(var i = 0; i < inactius.length; i++)
+                    widget.removeChild(inactius[i]);
+            }, 1000);
+
+        }
+
+        calendari(document.getElementById('calendari'), new Date());
         </script>
         
 		<script type="text/javascript" src="js/calendario.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/materias.js"></script>
+        <script type="text/javascript" src="js/notaslista.js"></script>
+
         <script type="text/javascript">
             app.initialize();
         </script>

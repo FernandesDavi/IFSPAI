@@ -1,17 +1,26 @@
 function carregarItensFrequencia(){
 	//variáveis
-	var itens = "", url = "	http://davifernandes.profissional.ws/Alunos/NOME_DA_PAGINA.php";
+	var itens = "", url = "	http://davifernandes.profissional.ws/escola	/frequencia.php";
 	var tabela = "";
-	var materia = "";
-	var materia2 = "";
-	var psor = "";
-    var data = ""; 
+	var idaluno =localStorage.getItem("aluno");
+	var mat=localStorage.getItem("materia");
+	var professor = "";
+	var faltas = "";
+	var auladada = "";
+	var aluno = "";
+	var turma = "";
+	var cargarH= "";
+	var disciplina = "";
+	var frequencia = "";
+	var x = "";
     //Capturar Dados Usando Método AJAX do jQuery
     $.ajax({
 	    url: url,
 	    cache: false,
 		crossDomain: true,
 	    dataType: "json",
+	   	data:"aluno="+idaluno+"&materia="+mat, 
+
 	    beforeSend: function() {
 		    $("h2").html("Carregando..."); //Carregando
 	    },
@@ -27,38 +36,29 @@ function carregarItensFrequencia(){
 		    else{
 					
 					//Dados do cabeçalho da tabela
-					materia = retorno[1].nome_materia;
-					materia2 += retorno[1].nome_materia;
-					psor += retorno[1].nome_prof;
+					disciplina = retorno[0].disciplina_nome;
+					turma = retorno[0].turma;
+					professor = retorno[0].professor;
+					auladada =retorno[0].aulasdadas;
+					cargaH =retorno[0].carga_horaria;
+					faltas =retorno[0].faltas;
 
-			    //Laço para criar linhas da tabela
-			   for(var i = 0; i<retorno.length; i++){
-			   	
-						//editar itens abaixo para receber DADOS de FREQUENCIA do aluno
-				    	itens += "<tr>";
-					    //itens += "<td>" + retorno[i].id_notas + "</td>";
-					    itens += "<td colspan='2'><b>" + retorno[i].avaliacao_nome + "</b></td>";
-					    itens += "<td>" + retorno[i].datas + "</td>";
-					    itens += "<td>" + retorno[i].calculo + "</td>";
-					    itens += "<td><b>" + retorno[i].nota + "</b></td>";
-					    //itens += "<td>" +  + "</td>";
-					    //itens += "<td>" + retorno[i].nome_materia + "</td>";
-					    //itens += "<td>" + retorno[i].nome_prof + "</td>";
-					    //itens += "<td>" + retorno[i].prontuario + "</td>";
-					   
-					itens += "</tr>";
-			  }
+					x = ((faltas / auladada));
+
+					frequencia = 100 - x;
+					frequencia += '%';
+
 			    //Preencher o cabeçalho da tabela
-				 $("#materia").html(materia);
-				 $("#materia2").html(materia2);
-				 $("#psor").html(psor);
-			     $("#minhaTabela tbody").html(itens);
-			    
-			    
+				 $("#disciplina").html(disciplina);
+				 $("#turma").html(turma);
+				 $("#professor").html(professor);
+			     $("#auladada").html(auladada);
+			     $("#cargarH").html(cargaH);
+			     $("#faltas").html(faltas);
+			     $("#frquencia").html(frequencia);
 		    }
 	    }
     });
-	
-	
-	
 }
+	
+	

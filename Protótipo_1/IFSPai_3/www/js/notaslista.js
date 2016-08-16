@@ -1,11 +1,11 @@
 
 
 
-function Carregarmaterias(){
+function CarregarNotas(){
 	//variáveis
 	var itens = ""; 
 	var itens2 = ""; 
-	var url = "	http://davifernandes.profissional.ws/escola/materias.php";
+	var url = "	http://davifernandes.profissional.ws/escola/notas.php";
 	var tabela = "";
 	var materia = "";
 	var materia2 = "";
@@ -20,7 +20,7 @@ function Carregarmaterias(){
 	    cache: false,
 		crossDomain: true,
 		type:"post", 
-	    dataType: "json",
+	    dataType: "json", 
 	    data:"aluno="+aluno, 
 	   
 	    success: function(retorno) {
@@ -29,30 +29,32 @@ function Carregarmaterias(){
 					
 				    itens += "<ul>";
 					//itens+="<td><button id='"+ retorno[i].id_materia +"' onClick='reply_click(this.id)'>"+ retorno[i].nome_materia +"</button></td>";
-					itens+="<li><a id='"+ retorno[i].id_disc +"' onClick='reply_click(this.id)'>"+ retorno[i].nome +"</a></li>";
+					itens+="<li><a id='"+ retorno[i].id_disc +"' onClick='reply_clicks(this.id)'>"+ retorno[i].nome +"</a></li>";
 					//select
 					itens += "</ul>";
 			  }
-			   $("#materia").html(itens);
+			   $("#frequencia").html(itens);
 
 			     for(var i = 0; i<retorno.length; i++){
 					
 				    itens2 += "<ul class='collection'>";
 					//itens+="<td><button id='"+ retorno[i].id_materia +"' onClick='reply_click(this.id)'>"+ retorno[i].nome_materia +"</button></td>";
-					itens2 +="<li 'collection-item'><a class='collection-item' id='"+ retorno[i].id_disc +"' onClick='reply_click(this.id)'>"+ retorno[i].nome +"</a></li>";
+					itens2 +="<li 'collection-item'><a class='collection-item' id='"+ retorno[i].id_disc +"' onClick='reply_clicks(this.id)'>"+ retorno[i].nome +"</a></li>";
 					//select
 					itens2 += "</ul>";
 			  }
-			  $("#materiaCola").html(itens2);
-			    //Preencher a Tabela	   
+			  $("#frequenciaN").html(itens2);
+			    //Preencher a Tabela
+				
+		    
 	    }
     });
 	
 }
-	function reply_click(clicked_id)
+	function reply_clicks(clicked_id)
 {
    // alert(clicked_id);
-    location.href="disciplinas.html";
-    localStorage.setItem("materia",clicked_id);
+    location.href="frequencia.html";
+    localStorage.setItem("frequencia",clicked_id);
    
 }
