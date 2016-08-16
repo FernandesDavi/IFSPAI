@@ -1,6 +1,6 @@
 function carregarItensFrequencia(){
 	//variáveis
-	var itens = "", url = "	http://davifernandes.profissional.ws/escola	/frequencia.php";
+	var itens = "", url = "	http://davifernandes.profissional.ws/escola/frequencia.php";
 	var tabela = "";
 	var idaluno =localStorage.getItem("aluno");
 	var mat=localStorage.getItem("materia");

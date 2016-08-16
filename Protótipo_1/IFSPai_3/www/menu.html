@@ -59,10 +59,10 @@
         </a>
 
         <div class="collapsible-body" id="frequencia">
-         <!-- aquiii-->
-     </div>
+           <!-- aquiii-->
+       </div>
 
- </li>
+   </li>
 </ul>
 </li>
 
@@ -109,8 +109,8 @@
 
     </div>
     <div class="collapsible-body"id="materiaCola">
-       <!-- aquiii-->
-   </div>
+     <!-- aquiii-->
+ </div>
 
 </li>
 
@@ -126,7 +126,7 @@
     <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_feedback_black_36px.svg"></i>Observações</div>
     <div class="collapsible-body" id="obs">
 
-    <!-- mais um aqui :D-->
+        <!-- mais um aqui :D-->
     </div>
     <!-- Retirando este p o header volta ao normal -->
 
@@ -228,9 +228,9 @@
         widget.appendChild(e);
 
         e.setAttribute('data-actual',
-         data.getFullYear() + '/' +
-         data.getMonth().pad(2) + '/' +
-         data.getDate().pad(2))
+           data.getFullYear() + '/' +
+           data.getMonth().pad(2) + '/' +
+           data.getDate().pad(2))
 
         var fila = document.createElement('tr');
         var titol = document.createElement('th');
@@ -302,7 +302,7 @@
 
                     /* Si es avui el decorem */
                     if(data.getDate() == actual.getDate() &&
-                     data.getMonth() == actual.getMonth())
+                       data.getMonth() == actual.getMonth())
                         cela.className = 'avui';
 
                     actual.setDate(actual.getDate()+1);
@@ -346,13 +346,13 @@
     <script src="js/materialize.min.js" ></script>
     <script type="text/javascript">
         $(document).ready(function(){
-           $(".button-collapse").sideNav();
+         $(".button-collapse").sideNav();
 
 
 
-       });
-   </script>
-   <script type="text/javascript" src="js/login.js"></script>
+     });
+ </script>
+ <script type="text/javascript" src="js/login.js"></script>
 
 </body>
 </html>

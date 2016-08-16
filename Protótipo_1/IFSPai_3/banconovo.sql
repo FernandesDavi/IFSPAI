@@ -199,6 +199,6 @@ inner join atribuicao on atribuicao.id_turma_atr = frequencia.id_turma_freq
 inner join professor on professor.id_professor = atribuicao.id_prof_atr
 inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr where disciplina.id_disc = 1 and aluno.id_aluno = 1;
 
+update responsavel set senha = 'admin' where id_resp = 1;
 
-
-SELECT * FROM observacoes where id_aluno_obs = 1 and id_resp_obs = 1 ORDER BY id_obs DESC LIMIT 1
+SELECT * FROM observacoes where id_aluno_obs = 1 and id_resp_obs = 1 ORDER BY id_obs DESC LIMIT 1;
