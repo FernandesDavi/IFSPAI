@@ -201,4 +201,7 @@ inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr where disci
 
 update responsavel set senha = 'admin' where id_resp = 1;
 
+
+select * from responsavel
+
 SELECT * FROM observacoes where id_aluno_obs = 1 and id_resp_obs = 1 ORDER BY id_obs DESC LIMIT 1;

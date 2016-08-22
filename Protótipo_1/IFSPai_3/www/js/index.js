@@ -40,24 +40,10 @@ var app = {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-		
-		
-		
+
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
     }
-	
-	// result contains any message sent from the plugin call
-	successHandler: function(result) {
-    alert('Callback Success! Result = '+result)
-	},
-
-	errorHandler:function(error) {
-    alert(error);
-	},
-
-	
-	
 };

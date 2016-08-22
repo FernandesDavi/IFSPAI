@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <meta="viewport" content="width=devide.width,initial-scale=1">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="utf-8">
   <link rel="stylesheet"  href="icons/material.css">
   <link rel="stylesheet"  href="css/materialize.css">
@@ -12,7 +12,9 @@
   
   <title>IFSPai</title> 
   <script type="text/javascript">
-    window.onload = function(){
+    document.addEventListener("deviceready", onDeviceReady, false);
+    
+  function onDeviceReady() {
       nome();
       carregarItensFrequencia();
       Carregarmaterias();
