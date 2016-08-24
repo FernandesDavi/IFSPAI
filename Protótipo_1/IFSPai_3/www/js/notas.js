@@ -8,27 +8,33 @@ function carregar(){
     var data = ""; 
 
     var x="";
-    var mat = localStorage.getItem("frequencia");
-    var aluno = localStorage.getItem("aluno");
+   var mat = localStorage.getItem("materia");
+   var aluno = localStorage.getItem("aluno");
+  // alert(mat,aluno);
+   // var mat =1;
+    //var aluno =1;
+
     //Capturar Dados Usando Método AJAX do jQuery
     $.ajax({
 	    url: url,
 	    cache: false,
 		crossDomain: true,
 	    dataType: "json",
-	    		type:"post", 
+	    type:"post", 
 
 	    data:"aluno="+aluno+"&materia="+mat, 
-	    
-	   success: function(retorno) {
+
 		 
-		  
+		  success: function(retorno) {
+			if(retorno[0].erro){
+				alert(retorno[0].erro);
+			}
+					else{
 
 					materia = retorno[0].disciplina;
 					turma = retorno[0].turma;
 					psor = retorno[0].professor;
 					
-
 			    //Laço para criar linhas da tabela
 			   for(var i = 0; i<retorno.length; i++){
 					
@@ -43,7 +49,7 @@ function carregar(){
 			  }
 			 
 			    //Preencher a Tabela
-				 $("#materia").html(materia);
+				 $("#dis").html(materia);
 				 $("#turma").html(turma);
 				 $("#prof").html(psor);
 			    $("#minhaTabela ").html(itens);
@@ -51,6 +57,7 @@ function carregar(){
 			    
 		    
 	    }
+	}
     });
 	
 	

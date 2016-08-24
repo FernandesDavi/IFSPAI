@@ -3,22 +3,22 @@
 <html>
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta charset="utf-8">
-  <link rel="stylesheet"  href="icons/material.css">
-  <link rel="stylesheet"  href="css/materialize.css">
-  <link rel="stylesheet"  href="css/folhaPai.css">  
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
-  <script type="text/javascript">
-    document.addEventListener("deviceready", onDeviceReady, false);
-    
+ <meta charset="utf-8">
+ <link rel="stylesheet"  href="icons/material.css">
+ <link rel="stylesheet"  href="css/materialize.css">
+ <link rel="stylesheet"  href="css/folhaPai.css">  
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+ <script type="text/javascript">
+  document.addEventListener("deviceready", onDeviceReady, false);
+  
   function onDeviceReady() {
-      nome();
-      Carregarmaterias();
-      CarregarNotas();
+    nome();
+    Carregarmaterias();
+    CarregarNotas();
 
-    }
-  </script>   
-  <title>IFSPai</title>
+  }
+</script>   
+<title>IFSPai</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
           <li>
             <a class="collapsible-header">
               <i class="material-icons"><img src="img/ic_materias_black_36px.svg"/></i>
-              &nbsp; Materias<i class="mdi-navigation-arrow-drop-down"></i>
+              Materias<i class="mdi-navigation-arrow-drop-down"></i>
             </a>
             <div class="collapsible-body" id="materia">
                 <!--
@@ -53,49 +53,48 @@
 
             <li>
               <a class="collapsible-header">
-               <i class="material-icons"><img src="img/ic_faltas_black_36px.svg"/></i>
-               &nbsp; Faltas<i class="mdi-navigation-arrow-drop-down"></i>
-             </a>
+                <i class="material-icons"><img src="img/ic_faltas_black_36px.svg"/></i>
+                Frequência<i class="mdi-navigation-arrow-drop-down"></i>
 
-             <div class="collapsible-body" id="frequencia">
+              </a>
+
+              <div class="collapsible-body" id="frequencia">
                <!-- aquiii-->
              </div>
-
-           </li>
-         </ul>
-       </li>
+           </ul>
+         </li>
 
 
-       <li>
-        <a href="sugestoes.html">
-          <i class="material-icons"><img src="img/ic_sugestoes_black_36px.svg"/></i>
-          &nbsp; Sugestões
-        </a>
-      </li>
+         <li>
+          <a href="sugestoes.html">
+            <i class="material-icons"><img src="img/ic_sugestoes_black_36px.svg"/></i>
+            &nbsp; Sugestões
+          </a>
+        </li>
 
-      <li><a href="index.html" onclick="limparLocalStorage()"><i class="material-icons"><img src="img/ic_loggout_black_36px.svg"/></i>&nbsp; LogOut</a></li>
-    </ul>
-    
-    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        <li><a href="index.html" onclick="limparLocalStorage()"><i class="material-icons"><img src="img/ic_loggout_black_36px.svg"/></i>&nbsp; LogOut</a></li>
+      </ul>
+      
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 
-  </nav>
+    </nav>
 
-  <div id="pai">
+    <div id="pai">
 
-    <div class="row">
-      <div class="input-field col s6">
-        <input value="" id="login" type="password" class="validate">
-        <label class="active" for="login">Senha Atual</label>
+      <div class="row">
+        <div class="input-field col s6">
+          <input value="" id="login" type="password" class="validate">
+          <label class="active" for="login">Senha Atual</label>
+        </div>
       </div>
-    </div>
 
 
-    <div class="row">
-      <div class="input-field col s6">
-        <input value="" id="senha" type="password" class="validate">
-        <label class="active" for="senha">Nova Senha</label>
+      <div class="row">
+        <div class="input-field col s6">
+          <input value="" id="senha" type="password" class="validate">
+          <label class="active" for="senha">Nova Senha</label>
+        </div>
       </div>
-    </div>
 
       <!--<button class="btn waves-effect waves-light" type="submit" name="action" id="btnAltera" >Alterar
       <i class="material-icons right">send</i>-->
