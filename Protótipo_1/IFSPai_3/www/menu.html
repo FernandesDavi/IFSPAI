@@ -3,166 +3,160 @@
 <html>
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8">
-    <link rel="stylesheet"  href="css/materialize.css">
-    <link rel="stylesheet"  href="css/folhaPai.css"> 
-    <link rel="stylesheet"  href="css/calendar.css">
+ <meta charset="utf-8">
+ <link rel="stylesheet"  href="css/materialize.css">
+ <link rel="stylesheet"  href="css/folhaPai.css"> 
+ <link rel="stylesheet"  href="css/calendar.css">
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
 
-    <script type="text/javascript">
-	document.addEventListener("deviceready", onDeviceReady, false);
-		
-	function onDeviceReady() {
-		log_sis();
-		nome();
-		Carregarmaterias();
-		CarregarNotas();
-		observacoes();
-	}
-        
-        
-    </script>
+ <script type="text/javascript">
+   document.addEventListener("deviceready", onDeviceReady, false);
+   
+   function onDeviceReady() {
+    log_sis();
+    nome();
+    Carregarmaterias();
+    CarregarNotas();
+    observacoes();
+  }
+  
+  
+</script>
 
-    <title>IFSPai</title>
+<title>IFSPai</title>
 </head>
 <body>
-    <nav>
-      <a href="#" class="brand-logo" id="nomeHead"> </a>
-      <ul id="slide-out" class="side-nav">
+  <nav>
+    <a href="#" class="brand-logo" id="nomeHead"> </a>
+    <ul id="slide-out" class="side-nav">
+
+      <li class="no-padding">
+
+        <ul class="collapsible collapsible-accordion">
+
+          <li>
+            <a class="collapsible-header">
+              <i class="material-icons"><img src="img/ic_materias_black_36px.svg"/></i>
+              Materias<i class="mdi-navigation-arrow-drop-down"></i>
+            </a>
+            
+            <div class="collapsible-body" id="materia">
+<!--
+                  aqui :p
+                -->
+              </div>
+
+            </li>
+          </ul>
+        </li>
 
         <li class="no-padding">
 
-            <ul class="collapsible collapsible-accordion">
-
-              <li>
-                <a class="collapsible-header">
-                    <i class="material-icons"><img src="img/ic_materias_black_36px.svg"/></i>
-                   Materias<i class="mdi-navigation-arrow-drop-down"></i>
-                </a>
-                
-                <div class="collapsible-body" id="materia">
-<!--
-                  aqui :p
-              -->
-          </div>
-
-      </li>
-  </ul>
-</li>
-
-<li class="no-padding">
-
-    <ul class="collapsible collapsible-accordion">
+          <ul class="collapsible collapsible-accordion">
 
            <li>
-        <a class="collapsible-header">
-            <i class="material-icons"><img src="img/ic_faltas_black_36px.svg"/></i>
-            Frequência<i class="mdi-navigation-arrow-drop-down"></i>
+            <a class="collapsible-header">
+              <i class="material-icons"><img src="img/ic_faltas_black_36px.svg"/></i>
+              Frequência<i class="mdi-navigation-arrow-drop-down"></i>
 
+            </a>
+
+            <div class="collapsible-body" id="frequencia">
+             <!-- aquiii-->
+           </div>
+         </ul>
+       </li>
+
+
+       <li>
+        <a href="sugestoes.html">
+          <i class="material-icons"><img src="img/ic_sugestoes_black_36px.svg"/></i>
+          &nbsp; Sugestões
         </a>
+      </li>
 
-        <div class="collapsible-body" id="frequencia">
-           <!-- aquiii-->
+
+
+      <li>
+        <a href="redefineSenha.html" ><i class="material-icons"><img src="img/ic_redefineSenha_black_36px.svg"/></i> &nbsp; Redefinir Senha</a>
+      </li>
+
+
+      <li>
+        <a href="index.html" onclick="limparLocalStorage()"><img src="img/ic_loggout_black_36px.svg"/></i> &nbsp; LogOut
+        </li>
+        
+      </ul>
+
+
+
+
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+
+    </nav>
+
+
+    <ul class="collapsible popout" data-collapsible="accordion">
+      <li>
+
+        <div class="collapsible-header" id="mae">
+          <i class="material-icons" > <img src="img/ic_disciplinas_black_36px.svg"></i>Disciplinas
+
+        </div>
+        <div class="collapsible-body"id="materiaCola">
+         <!-- aquiii-->
        </div>
-</ul>
-</li>
 
+     </li>
 
-<li>
-    <a href="sugestoes.html">
-        <i class="material-icons"><img src="img/ic_sugestoes_black_36px.svg"/></i>
-        &nbsp; Sugestões
-    </a>
-</li>
-
-
-
-<li>
-    <a href="redefineSenha.html" ><i class="material-icons"><img src="img/ic_redefineSenha_black_36px.svg"/></i> &nbsp; Redefinir Senha</a>
-</li>
-
-
-<li>
-    <a href="index.html" onclick="limparLocalStorage()"><img src="img/ic_loggout_black_36px.svg"/></i> &nbsp; LogOut
-    </li>
-    
-</ul>
-
-
-
-
-<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-
-</nav>
-
-
-<ul class="collapsible popout" data-collapsible="accordion">
-  <li>
-
-    <div class="collapsible-header" id="mae">
-        <i class="material-icons" > <img src="img/ic_disciplinas_black_36px.svg"></i>Disciplinas
-
-    </div>
-    <div class="collapsible-body"id="materiaCola">
-     <!-- aquiii-->
- </div>
-
-</li>
-
-<li>
-    <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_frequencia_black_36px.svg"></i>Frequência</div>
-    <div class="collapsible-body" id="frequenciaN">
+     <li>
+      <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_frequencia_black_36px.svg"></i>Frequência</div>
+      <div class="collapsible-body" id="frequenciaN">
         <!-- aquiii-->
-    </div>
+      </div>
 
-</li>
+    </li>
 
-<li>
-    <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_feedback_black_36px.svg"></i>Observações</div>
-    <div class="collapsible-body" id="obs">
+    <li>
+      <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_feedback_black_36px.svg"></i>Observações</div>
+      <div class="collapsible-body" id="obs">
 
         <!-- mais um aqui :D-->
-    </div>
-    <!-- Retirando este p o header volta ao normal -->
+      </div>
+      <!-- Retirando este p o header volta ao normal -->
 
-</li>
-
-<li>
-    <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_explore_black_24px.svg"></i><a href="localizaFilhos.html" ><font color="#ffffff">Localização</font></a></div>
-
-    <!-- Retirando este p o header volta ao normal -->
-</li>
+    </li>
 
 
 
 
-</ul>
+  </ul>
 
 
   
-    <script type="text/javascript" src="js/calendario.js">
-        
-    </script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/materias.js"></script>
-    <script type="text/javascript" src="js/notaslista.js"></script>
-    <script type="text/javascript" src="js/obs.js"></script>
+  <script type="text/javascript" src="js/calendario.js">
+    
+  </script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/materias.js"></script>
+  <script type="text/javascript" src="js/notaslista.js"></script>
+  <script type="text/javascript" src="js/obs.js"></script>
 
 
-    <script type="text/javascript">
-        app.initialize();
-    </script>
-    <script src="js/jquery-2.2.1.min.js"></script>
-    <script src="js/materialize.min.js" ></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-         $(".button-collapse").sideNav();
+  <script type="text/javascript">
+    app.initialize();
+  </script>
+  <script src="js/jquery-2.2.1.min.js"></script>
+  <script src="js/materialize.min.js" ></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+     $(".button-collapse").sideNav();
 
 
 
-     });
+   });
  </script>
  <script type="text/javascript" src="js/login.js"></script>
 

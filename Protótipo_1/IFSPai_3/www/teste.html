@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <link rel="stylesheet"  href="css/materialize.css">
+ <link rel="stylesheet"  href="css/folhaPai.css"> 
+
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+
+ <script type="text/javascript">
+   window.onload = function(){
+
+    nome();
+    carregar();
+    Carregarmaterias();
+    CarregarNotas();
+
+  }
+</script>
+<title>IFSPai</title>
+</head>
+<body>
+  <nav>
+    <a href="#" class="brand-logo" id="nomeHead"></a>
+    <ul id="slide-out" class="side-nav">
+      <li><a href="menu.html"><i class="material-icons">store</i>&nbsp;Home</a></li>
+      <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header"><i class="material-icons">class</i>Materias<i class="mdi-navigation-arrow-drop-down"></i></a>
+            <div class="collapsible-body" id="materia">
+                <!--
+                  aqui :p
+                -->
+              </div>
+
+
+            </li>
+          </ul>
+        </li>
+
+        <li class="no-padding">
+
+          <ul class="collapsible collapsible-accordion">
+
+             <li>
+        <a class="collapsible-header">
+            <i class="material-icons"><img src="img/ic_faltas_black_36px.svg"/></i>
+            Frequência<i class="mdi-navigation-arrow-drop-down"></i>
+
+        </a>
+
+        <div class="collapsible-body" id="frequencia">
+           <!-- aquiii-->
+       </div>
+
+   </li>
+         </ul>
+       </li>
+
+
+       <li><a href="sugestoes.html"><i class="material-icons">chat</i>&nbsp; Sugestões</a></li>
+       <li><a href="redefineSenha.html"><i class="material-icons">lock</i>&nbsp; Redefinir senha</a></li>
+       
+       
+       <li><a href="index.html" onclick="limparLocalStorage()"><i class="material-icons">settings</i>&nbsp; LogOut</a></li>
+     </ul>
+     
+     <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+     
+   </nav>
+
+   <center>
+    <br>
+    <table border="1" class="striped">
+      <thead>
+        <tr>
+          <th colspan="2" data-field="materia" style="color : white"><center id="dis"></center></th>
+          <th data-field="abrevia" style="color : white" id ="turma"></th>
+          <th colspan="3" data-field="psor" style="color : white" id="prof"><center></center></th>
+        </tr>
+      </thead>
+
+      <thead>
+        <tr>
+          <td colspan="2" style="color : white"><center>Avaliacao</center></td>
+          <td style="color : white">Data</td>
+          <td style="color : white">Calculo</td>
+          <td style="color : white">Nota</td>
+        </tr>
+      </thead>
+
+      
+    </table>
+    <table>
+      <tbody id="minhaTabela">
+      <!-- aqui -->
+
+      </tbody>
+
+    </table>
+    <table>
+     <thead>
+        <tr>
+          
+          <td style="color : white"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td style="color : white">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td colspan="2" style="color : white"><center>Média: </center></td>
+          <td style="color : white" ><center id="mediafinal"></center></td>
+        </tr>
+      </thead>
+      </thead>
+    </table>
+    <a href="menu.html" > <i class="material-icons small"><center>store</i><br>Menu<br> </a>
+  </center>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="cordova.js"></script>
+  
+  <script type="text/javascript" src="js/index.js"></script>
+  
+  <script type="text/javascript">
+    app.initialize();
+  </script>
+  
+  <script src="js/jquery-2.2.1.min.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+  <script src="js/materialize.min.js" ></script>
+
+  <script type="text/javascript" src="js/materias.js"></script>
+  <script type="text/javascript" src="js/notaslista.js"></script>
+  <script type="text/javascript" src="js/notas.js"></script>
+  <script type="text/javascript" src="js/nome.js" ></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".button-collapse").sideNav();
+    });
+  </script>
+  
+  
+</body>
+</html>
