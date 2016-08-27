@@ -48,7 +48,7 @@ var vl3;
 					    calc = retorno[i].calculo;
 					    itens += "<td><b>" + retorno[i].nota + "</b></td>";
 					    vl1 += parseFloat(retorno[i].nota);
-
+//fazer um mapa
 					 	itens += "</tr>";
 					   
 				
