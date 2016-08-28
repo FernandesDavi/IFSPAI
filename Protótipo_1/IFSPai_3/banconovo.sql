@@ -56,13 +56,13 @@ create table professor(
     complemento varchar(20),
     prontuario int
 );
-insert into professor values(null,'cirço','123456789','1245896', 'rua das pedrinhas', '06434705', 124, 'b',1234567); 
+insert into professor values(null,'outro','123456789','1245896', 'rua das pedrinhas', '06434705', 124, 'b',1234567); 
 create table disciplina(
 	id_disc int primary key auto_increment,
 	nome varchar(50),
 	carga_horaria int
 );
-insert into disciplina values (null,'JAVA',80);
+insert into disciplina values (null,'C#',80);
 
 create table turma(
 	id_turma int primary key auto_increment,
@@ -82,17 +82,20 @@ create table atribuicao(
 	foreign key (id_turma_atr) references turma(id_turma),
 	foreign key (id_disc_atr) references disciplina(id_disc)
 );
+insert into atribuicao values (null,2,1,2);
+select * from atribuicao;
 create table frequencia(
 	id_freq int primary key auto_increment,
     dia datetime,
     aula_dada int,
     frequencia int,
     id_aluno_freq int,
-    id_turma_freq int,
+    id_atribuicao_freq int,
     foreign key (id_aluno_freq) references aluno(id_aluno),
-    foreign key (id_turma_freq) references turma(id_turma)
+	foreign key (id_atribuicao_freq) references atribuicao(id_atribuicao)
+
 );
-insert into frequencia values(null,now(),4,1,1,1);
+insert into frequencia values(null,now(),4,1,1,2);
 
 create table notas(
 	id_notas int primary key auto_increment,
@@ -101,9 +104,9 @@ create table notas(
     calculo varchar(30),
     nota float,
     id_aluno_notas int,
-	id_turma_notas int,
+	id_atribuicao_notas int,
     foreign key (id_aluno_notas) references aluno(id_aluno),
-    foreign key (id_turma_notas) references turma(id_turma)
+    foreign key (id_atribuicao_notas) references atribuicao(id_atribuicao)
 );
 insert into notas values(null,'prova 1','2016-08-03','MEDIA',5.99,1,1);
 insert into notas values(null,'prova 2','2016-08-06','MEDIA',6.99,1,1);
@@ -202,6 +205,6 @@ inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr where disci
 update responsavel set senha = 'admin' where id_resp = 1;
 
 
-select * from responsavel
+show tables
 
 SELECT * FROM observacoes where id_aluno_obs = 1 and id_resp_obs = 1 ORDER BY id_obs DESC LIMIT 1;
