@@ -8,11 +8,11 @@ function carregar(){
     var data = ""; 
 
     var x="";
-  // var mat = localStorage.getItem("materia");
-   //var aluno = localStorage.getItem("aluno");
+   var mat = localStorage.getItem("materia");
+   var aluno = localStorage.getItem("aluno");
   // alert(mat,aluno);
-    var mat =1; 
-    var aluno =1;
+   // var mat =1; 
+    //var aluno =1;
 	var  vl1 = 0;
 	var calc;
 	var vl3;

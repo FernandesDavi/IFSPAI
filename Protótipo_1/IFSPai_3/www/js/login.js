@@ -27,7 +27,7 @@ var users =localStorage.getItem("aluno");
 	   
     });
 	
-
+ limparLocalStorage();
 }
 
 
@@ -48,6 +48,7 @@ var users =localStorage.getItem("aluno");
 	
 
 }
+
 function validaaparecer(){
 	
      		 
@@ -75,7 +76,7 @@ function validaaparecer(){
 }
 
 function limparLocalStorage(){
-$('#errolog').hide();
+	$('#errolog').hide();
 	localStorage.clear();
 }
 

@@ -3,7 +3,7 @@ function carregarItensFrequencia(){
 	var itens = "", url = "	http://davifernandes.profissional.ws/escola/frequencia.php";
 	var tabela = "";
 	var idaluno =localStorage.getItem("aluno");
-	var mat=localStorage.getItem("materia");
+	var mat=localStorage.getItem("frequencia");
 	var professor = "";
 	var faltas = "";
 	var auladada = "";
@@ -21,17 +21,10 @@ function carregarItensFrequencia(){
     	dataType: "json",
     	data:"aluno="+idaluno+"&materia="+mat, 
 
-    	beforeSend: function() {
-		    $("h2").html("Carregando..."); //Carregando
-		},
-		error: function(data) {
-			this.data = data;
-			console.log(data);
-			$("h2").html("Há algum problema com a fonte de dados");
-		},
+  
 		success: function(retorno) {
 			if(retorno[0].erro){
-				$("h2").html(retorno[0].erro);
+				alert(retorno[0].erro);
 			}
 			else{
 				

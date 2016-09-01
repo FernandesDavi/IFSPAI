@@ -124,58 +124,71 @@ create table calendario(
 
 create table log_sis(
 	id_log int primary key auto_increment,
-    io_es bit,
+    io_es int,
     usuario_id int,
     data_hora datetime,
     foreign key (usuario_id) references responsavel(id_resp)
 
 );
 
+
+
+select * from log_sis
 insert into atribuicao values (null, 1,1,1);
 
 select * from frequencia;
 
-/* Mostrar a frequencia de uma determinada materia */
+/*
 select frequencia.dia, frequencia.aula_dada, aluno.nome, turma.turma,disciplina.nome from frequencia 
 inner join aluno on aluno.id_aluno = frequencia.id_aluno_freq
 inner join turma on turma.id_turma = frequencia.id_turma_freq
 inner join atribuicao on atribuicao.id_turma_atr = frequencia.id_turma_freq
 inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr where disciplina.id_disc = 1; 
+*/
+
+/* Mostrar a frequencia de uma determinada materia */
+select frequencia.dia, frequencia.aula_dada, aluno.nome, turma.turma,disciplina.nome from frequencia 
+inner join aluno on aluno.id_aluno = frequencia.id_aluno_freq
+inner join atribuicao on atribuicao.id_atribuicao = frequencia.id_atribuicao_freq
+inner join turma on turma.id_turma = atribuicao.id_turma_atr
+inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr;
 
 /* Montar a lista de materias */
 select disciplina.nome, disciplina.id_disc from frequencia 
 inner join aluno on aluno.id_aluno = frequencia.id_aluno_freq
-inner join turma on turma.id_turma = frequencia.id_turma_freq
-inner join atribuicao on atribuicao.id_turma_atr = frequencia.id_turma_freq
+inner join atribuicao on atribuicao.id_atribuicao = frequencia.id_atribuicao_freq
+inner join turma on turma.id_turma = atribuicao.id_turma_atr
 inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr where aluno.id_aluno = 1;
 
 /* quantidade de materias */
 select count(*)quantidade_materias  from frequencia 
 inner join aluno on aluno.id_aluno = frequencia.id_aluno_freq
-inner join turma on turma.id_turma = frequencia.id_turma_freq
-inner join atribuicao on atribuicao.id_turma_atr = frequencia.id_turma_freq
+inner join atribuicao on atribuicao.id_atribuicao = frequencia.id_atribuicao_freq
+inner join turma on turma.id_turma = atribuicao.id_turma_atr
 inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr where aluno.id_aluno = 1;
 
 /* Mostrar as notas */
 
+
 select notas.avaliacao_nome, notas.datas, notas.calculo, notas.nota, aluno.nome, turma.turma, disciplina.nome from notas
 inner join aluno on aluno.id_aluno = notas.id_aluno_notas
-inner join turma on turma.id_turma = notas.id_turma_notas
-inner join atribuicao on atribuicao.id_turma_atr = notas.id_turma_notas
+inner join atribuicao on atribuicao.id_atribuicao = notas.id_atribuicao_notas
+inner join turma on turma.id_turma = atribuicao.id_turma_atr
 inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr where disciplina.id_disc = 1; 
 
+
 /*materias*/
+
 select notas.avaliacao_nome, DATE_FORMAT(notas.datas,'%m-%d-%Y') as data, notas.calculo, notas.nota, aluno.nome as aluno,professor.nome as professor, turma.turma, disciplina.nome as disciplina from notas
 inner join aluno on aluno.id_aluno = notas.id_aluno_notas
-inner join turma on turma.id_turma = notas.id_turma_notas
-inner join atribuicao on atribuicao.id_turma_atr = notas.id_turma_notas
+inner join atribuicao on atribuicao.id_atribuicao = notas.id_atribuicao_notas
+inner join turma on turma.id_turma = atribuicao.id_turma_atr
 inner join professor on professor.id_professor = atribuicao.id_prof_atr
 inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr where disciplina.id_disc = 1 and aluno.id_aluno =1;
 
-select * from notas;
 
 select responsavel.usuario, responsavel.senha, aluno.id_aluno, aluno.nome from responsavel
-inner join aluno on aluno.id_resp_aluno = responsavel.id_resp where responsavel.usuario = 1 and responsavel.senha = 1;
+inner join aluno on aluno.id_resp_aluno = responsavel.id_resp where responsavel.usuario = 'admin' and responsavel.senha = 'admin';
 
 select * from frequencia;
 select * from turma;
@@ -189,16 +202,17 @@ SELECT * from log_sis;
 
 select * from responsavel;
 
-
-
 		insert into log_sis (io_es, usuario_id,data_hora)values(1,1,now());
         select aluno.id_aluno, aluno.nome from responsavel inner join aluno on aluno.id_resp_aluno = responsavel.id_resp where responsavel.usuario = 'admin' and responsavel.senha ='admin';
 
 
+
+select * from notas
+select * from frequencia
 select professor.nome as professor,disciplina.carga_horaria, frequencia.dia,COUNT(frequencia.frequencia) as faltas, SUM(frequencia.aula_dada) as aulasdadas, aluno.nome as aluno, turma.turma, disciplina.nome as disciplina_nome from frequencia 
 inner join aluno on aluno.id_aluno = frequencia.id_aluno_freq
-inner join turma on turma.id_turma = frequencia.id_turma_freq
-inner join atribuicao on atribuicao.id_turma_atr = frequencia.id_turma_freq
+inner join atribuicao on atribuicao.id_atribuicao = frequencia.id_atribuicao_freq
+inner join turma on turma.id_turma = atribuicao.id_turma_atr
 inner join professor on professor.id_professor = atribuicao.id_prof_atr
 inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr where disciplina.id_disc = 1 and aluno.id_aluno = 1;
 
@@ -206,5 +220,6 @@ update responsavel set senha = 'admin' where id_resp = 1;
 
 
 show tables
+
 
 SELECT * FROM observacoes where id_aluno_obs = 1 and id_resp_obs = 1 ORDER BY id_obs DESC LIMIT 1;
