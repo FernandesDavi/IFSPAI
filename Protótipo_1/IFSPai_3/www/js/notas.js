@@ -16,7 +16,7 @@ function carregar(){
 	var  vl1 = 0;
 	var calc;
 	var vl3;
-
+	var  seila = 0.0;
     //Capturar Dados Usando Método AJAX do jQuery
     $.ajax({
 	    url: url,
@@ -47,15 +47,20 @@ function carregar(){
 					    itens += "<td>" + retorno[i].calculo + "</td>";
 					    calc = retorno[i].calculo;	
 					    itens += "<td><b>" + retorno[i].nota + "</b></td>";
+					    seila += parseFloat(calc) * parseFloat(retorno[i].nota);
+
 					    vl1 += parseFloat(retorno[i].nota);
 //fazer um mapa
 					 	itens += "</tr>";
 					   
 				
 			  }
+			  console.log(seila);
 			  if (calc == "MEDIA") {
 				vl3 = (vl1 / i);
 
+			  }else{
+			  	vl3 = seila;
 			  }
 			 					    
 
