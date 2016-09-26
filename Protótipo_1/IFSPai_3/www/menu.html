@@ -11,13 +11,14 @@
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
 
  <script type="text/javascript">
-   document.addEventListener("deviceready", onDeviceReady, false);
-   
-   function onDeviceReady() {
+document.addEventListener("deviceready", onDeviceReady, false);
+		
+	function onDeviceReady() {
     log_sis();
     nome();
     Carregarmaterias();
     CarregarNotas();
+    calendario();
     observacoes();
   }
   
@@ -122,12 +123,22 @@
       <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_feedback_black_36px.svg"></i>Observações</div>
       <div class="collapsible-body" id="obs">
 
+
+        <!-- mais um aqui :D-->
+      </div>
+      <!-- Retirando este p o header volta ao normal -->
+    </li>
+
+
+    <li>
+      <div class="collapsible-header" id="mae"><i class="material-icons"><img src="img/ic_feedback_black_36px.svg"></i>Proximas Atividades</div>
+      <div class="collapsible-body" id="atv">
+
         <!-- mais um aqui :D-->
       </div>
       <!-- Retirando este p o header volta ao normal -->
 
     </li>
-
 
 
 
@@ -143,7 +154,7 @@
   <script type="text/javascript" src="js/materias.js"></script>
   <script type="text/javascript" src="js/notaslista.js"></script>
   <script type="text/javascript" src="js/obs.js"></script>
-
+  <script type="text/javascript" src="js/calendario.js"></script>
 
   <script type="text/javascript">
     app.initialize();

@@ -15,10 +15,10 @@ function observacoes(){
 
 
     	success: function(retorno) {
-
+    			obs+="<center>"
 				//Dados do cabeçalho da tabela
-				obs = retorno[0].observacoes;
-
+				obs += retorno[0].observacoes;
+				obs+="</center>"	
 			    //Preencher o cabeçalho da tabela
 			    $("#obs").html(obs);
 
