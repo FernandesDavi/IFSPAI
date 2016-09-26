@@ -73,6 +73,7 @@ create table turma(
     select * from aluno;
     insert into turma values(null,'redes 2','',2016);
     select * from atribuicao;
+    
 create table atribuicao(
 	id_atribuicao int primary key auto_increment,
 	id_prof_atr int,
@@ -95,7 +96,7 @@ create table frequencia(
 
 );
 insert into frequencia values(null,now(),4,4,1,3);
-select * from frequencia
+select * from frequencia;
 create table notas(
 	id_notas int primary key auto_increment,
     avaliacao_nome varchar(50),
@@ -115,11 +116,12 @@ insert into notas values(null,'prova 2','2016-08-08','0.25',7,1,2);
 create table calendario(
 	id_calendario int primary key auto_increment,
     data date,
-    aviso varchar(15),
+    aviso varchar(50),
 	id_turma_calen int,
 	foreign key (id_turma_calen) references turma(id_turma)
 
 );
+insert into calendario values (null,'2016-09-08','prova de java web', 1);
 
 create table log_sis(
 	id_log int primary key auto_increment,
@@ -219,4 +221,8 @@ inner join disciplina on disciplina.id_disc = atribuicao.id_disc_atr where disci
 
 update disciplina set nome = 'Csharp' where id_disc = 1;
 
-
+select DISTINCT DATE_FORMAT(calendario.data,'%d-%m-%Y') as data, calendario.aviso from calendario
+ inner join atribuicao on atribuicao.id_turma_atr = calendario.id_turma_calen
+ inner join notas on notas.id_atribuicao_notas = atribuicao.id_atribuicao 
+ inner join aluno on aluno.id_aluno = notas.id_aluno_notas where aluno.id_aluno = 1 and (month(calendario.data) = Month(now())) or month(calendario.data) = (10) order by calendario.data asc ;
+ 
