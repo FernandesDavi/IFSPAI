@@ -12,7 +12,7 @@ create table responsavel(
     complemento varchar(20),
     usuario varchar(50),
     senha varchar(30)
-);
+)
 insert into responsavel values(null,'davi','1234567','12345678','rua do hue','234567',234,'','user','senha');
 SELECT * FROM aluno;
 create table sugestoes(
