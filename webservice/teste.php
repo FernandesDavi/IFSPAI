@@ -11,7 +11,7 @@ header("Access-Control-Allow-Credentials: true");
   
 $servidor = '186.202.152.167';
 $usuario = 'daviwebservice';
-$senha = 'davi41947181';
+$senha = '';
 $banco = 'daviwebservice';
 
 // Conecta-se ao banco de dados MySQL
